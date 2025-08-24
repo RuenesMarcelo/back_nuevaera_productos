@@ -15,7 +15,7 @@ public class ProductController {
 
     public ProductController(ProductRepository productRepository) {this.productRepository = productRepository;}
 
-    // GET /api/productos → devuelve todos los productos
+    // GET /api/productos → devuelve todos los productos.
     @GetMapping
     public List<Product> getAllProductos() {
         return productRepository.findAll();
