@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
@@ -29,6 +29,12 @@ public class ProductController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/categoria/{idCategoria}")
+    public List<Product> getByCategoria(@PathVariable int idCategoria) {
+        return productRepository.findByCategoria_idCategoria(idCategoria);
+    }
+
+
     // POST /api/producto  → crea un nuevo producto
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
@@ -47,7 +53,8 @@ public class ProductController {
                     product.setNombre(datosProducto.getNombre());
                     product.setPrecio(datosProducto.getPrecio());
                     product.setStock(datosProducto.getStock());
-                    product.setId_categoria(datosProducto.getId_categoria());
+                    product.setCategoria(datosProducto.getCategoria());
+                    product.setImagen(datosProducto.getImagen());
                     Product updated = productRepository.save(product);
                     return ResponseEntity.ok(updated);
                 })
