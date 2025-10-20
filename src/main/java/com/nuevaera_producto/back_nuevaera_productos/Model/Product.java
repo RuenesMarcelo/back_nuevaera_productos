@@ -18,18 +18,25 @@ public class Product {
     @Column(nullable = false)
     private int stock;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false)
+    private Category categoria;
+
+
     @Column (nullable = false)
-    private int id_categoria;
+    private String imagen;
 
     public Product() {}
 
-    public Product(String id_producto, String nombre, double precio, int stock, int id_categoria) {
+    public Product(String id_producto, String nombre, double precio, int stock, Category categoria, String imagen) {
         this.id_producto = id_producto;
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
-        this.id_categoria = id_categoria;
+        this.categoria = categoria;
+        this.imagen = imagen;
     }
+
 
     public String getId_producto() {
         return id_producto;
@@ -63,11 +70,19 @@ public class Product {
         this.stock = stock;
     }
 
-    public int getId_categoria() {
-        return id_categoria;
+    public Category getCategoria() {
+        return categoria;
     }
 
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setCategoria(Category categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

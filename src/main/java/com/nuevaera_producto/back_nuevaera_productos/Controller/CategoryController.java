@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/categoria")
 public class CategoryController {
@@ -21,8 +22,8 @@ public class CategoryController {
 
     // GET /api/rol/{id_rol}  → devuelve un rol por ID
     @GetMapping("/{id_categoria}")
-    public ResponseEntity<Category> getCategoryById(@PathVariable int id_categoria){
-        return categoryRepository.findById(id_categoria)
+    public ResponseEntity<Category> getCategoryById(@PathVariable("id_categoria") int idCategoria){
+        return categoryRepository.findById(idCategoria)
                 .map(categoria -> ResponseEntity.ok(categoria))
                 .orElse(ResponseEntity.notFound().build());
     }
