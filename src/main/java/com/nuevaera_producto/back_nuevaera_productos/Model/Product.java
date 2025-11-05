@@ -12,11 +12,7 @@ public class Product {
     @Column(nullable = false, length = 100)
     private String nombre;
 
-    @Column(nullable = false)
-    private double precio;
 
-    @Column(nullable = false)
-    private int stock;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false)
@@ -28,11 +24,9 @@ public class Product {
 
     public Product() {}
 
-    public Product(String id_producto, String nombre, double precio, int stock, Category categoria, String imagen) {
+    public Product(String id_producto, String nombre, Category categoria, String imagen) {
         this.id_producto = id_producto;
         this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
         this.categoria = categoria;
         this.imagen = imagen;
     }
@@ -52,22 +46,6 @@ public class Product {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
     }
 
     public Category getCategoria() {

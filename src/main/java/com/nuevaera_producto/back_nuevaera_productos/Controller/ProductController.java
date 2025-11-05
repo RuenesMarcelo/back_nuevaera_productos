@@ -51,8 +51,6 @@ public class ProductController {
         return productRepository.findById(id_producto)
                 .map(product -> {
                     product.setNombre(datosProducto.getNombre());
-                    product.setPrecio(datosProducto.getPrecio());
-                    product.setStock(datosProducto.getStock());
                     product.setCategoria(datosProducto.getCategoria());
                     product.setImagen(datosProducto.getImagen());
                     Product updated = productRepository.save(product);
