@@ -9,7 +9,7 @@ import java.util.List;
 
 //@CrossOrigin(origins = "https://nuevaera-v9ts.vercel.app/")
 @CrossOrigin(origins = {
-        "https://nuevaera-v9ts.vercel.app",
+        "https://nuevaera-six.vercel.app/",
         "http://localhost:4200"
 })
 @RestController
