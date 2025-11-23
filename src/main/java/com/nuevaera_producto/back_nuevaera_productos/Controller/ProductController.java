@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 //@CrossOrigin(origins = "https://nuevaera-v9ts.vercel.app/")
 @CrossOrigin(origins = {
-        "https://quimicosnuevaera.com",
+        "https://www.quimicosnuevaera.com",
         "quimicosnuevaera.com",
         "http://localhost:4200"
 })
