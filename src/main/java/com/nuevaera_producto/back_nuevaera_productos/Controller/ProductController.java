@@ -58,6 +58,8 @@ public class ProductController {
                     product.setNombre(datosProducto.getNombre());
                     product.setCategoria(datosProducto.getCategoria());
                     product.setImagen(datosProducto.getImagen());
+                    product.setDescripcion((datosProducto.getDescripcion()));
+                    product.setPresentacion(datosProducto.getPresentacion());
                     Product updated = productRepository.save(product);
                     return ResponseEntity.ok(updated);
                 })

@@ -13,7 +13,6 @@ public class Product {
     private String nombre;
 
 
-
     @ManyToOne
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false)
     private Category categoria;
@@ -22,13 +21,22 @@ public class Product {
     @Column (nullable = false)
     private String imagen;
 
+    @Column(columnDefinition = "TEXT", nullable = true)
+    private String descripcion;
+
+    @Column(columnDefinition = "TEXT", nullable = true)
+    private String presentacion;
+
+
     public Product() {}
 
-    public Product(String id_producto, String nombre, Category categoria, String imagen) {
+    public Product(String id_producto, String nombre, Category categoria, String imagen, String descripcion, String presentacion) {
         this.id_producto = id_producto;
         this.nombre = nombre;
         this.categoria = categoria;
         this.imagen = imagen;
+        this.descripcion = descripcion;
+        this.presentacion = presentacion;
     }
 
 
@@ -63,4 +71,21 @@ public class Product {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getPresentacion() {
+        return presentacion;
+    }
+
+    public void setPresentacion(String presentacion) {
+        this.presentacion = presentacion;
+    }
+
 }
